@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitGear Store - Login/Register</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .form-card { max-width: 400px; margin: auto; }
+  .toggle-btn { cursor: pointer; }
+  .active-tab { font-weight: bold; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">FitGear</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto gap-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+        <li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li>
+        <li class="nav-item"><button class="btn btn-sm btn-secondary" id="themeBtn">🌞 Light</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container py-5">
+  <div class="form-card card bg-dark text-light p-4 shadow-sm">
+    <div class="d-flex justify-content-around mb-4">
+      <div id="loginTab" class="toggle-btn active-tab">Login</div>
+      <div id="registerTab" class="toggle-btn">Register</div>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm">
+      <div class="mb-3">
+        <label for="loginEmail" class="form-label">Email</label>
+        <input type="email" class="form-control bg-secondary text-light border-0" id="loginEmail" required>
+      </div>
+      <div class="mb-3">
+        <label for="loginPassword" class="form-label">Password</label>
+        <input type="password" class="form-control bg-secondary text-light border-0" id="loginPassword" required>
+      </div>
+      <button type="submit" class="btn btn-warning w-100">Login</button>
+      <span id="loginMsg" class="text-success fw-bold mt-2 d-block"></span>
+    </form>
+
+    <!-- Register Form (hidden initially) -->
+    <form id="registerForm" class="d-none">
+      <div class="mb-3">
+        <label for="regName" class="form-label">Name</label>
+        <input type="text" class="form-control bg-secondary text-light border-0" id="regName" required>
+      </div>
+      <div class="mb-3">
+        <label for="regEmail" class="form-label">Email</label>
+        <input type="email" class="form-control bg-secondary text-light border-0" id="regEmail" required>
+      </div>
+      <div class="mb-3">
+        <label for="regPassword" class="form-label">Password</label>
+        <input type="password" class="form-control bg-secondary text-light border-0" id="regPassword" required>
+      </div>
+      <button type="submit" class="btn btn-warning w-100">Register</button>
+      <span id="regMsg" class="text-success fw-bold mt-2 d-block"></span>
+    </form>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-black text-light py-3 mt-5 text-center small">
+  © 2025 FitGear Store • Demo e-commerce portal By Dhivyesh P
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  updateHeaderUI(); // sync theme & header
+
+  const loginForm = document.getElementById("loginForm");
+  const registerForm = document.getElementById("registerForm");
+  const loginTab = document.getElementById("loginTab");
+  const registerTab = document.getElementById("registerTab");
+
+  // Toggle tabs
+  loginTab.addEventListener("click", () => {
+    loginForm.classList.remove("d-none");
+    registerForm.classList.add("d-none");
+    loginTab.classList.add("active-tab");
+    registerTab.classList.remove("active-tab");
+  });
+
+  registerTab.addEventListener("click", () => {
+    registerForm.classList.remove("d-none");
+    loginForm.classList.add("d-none");
+    registerTab.classList.add("active-tab");
+    loginTab.classList.remove("active-tab");
+  });
+
+  // Login
+  loginForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+    if(!email || !password){ alert("Fill all fields"); return; }
+    state.user = { email };
+    persist();
+    location.href = "index.html";
+  });
+
+  // Register
+  registerForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const name = document.getElementById("regName").value.trim();
+    const email = document.getElementById("regEmail").value.trim();
+    const password = document.getElementById("regPassword").value.trim();
+    if(!name || !email || !password){ alert("Fill all fields"); return; }
+    state.user = { name, email };
+    persist();
+    location.href = "index.html";
+  });
+});
+</script>
+</body>
+</html>

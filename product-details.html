@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitGear Store - Product Details</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navbar (Consistent) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">FitGear</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto gap-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart <span id="cartCountBadge" class="badge bg-warning text-dark">0</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist <span id="wishCountBadge" class="badge bg-info text-dark">0</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#" id="authBtn">Login</a></li>
+        <li class="nav-item"><button class="btn btn-sm btn-secondary" id="themeBtn">🌞 Light</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container py-4" id="detailRoot">
+  <!-- Product details will be rendered here dynamically by script.js -->
+</main>
+
+<!-- Footer -->
+<footer class="bg-black text-light py-3 mt-5">
+  <div class="container text-center small">© 2025 FitGear Store • Demo project</div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    updateHeaderUI();
+    initProductDetails(); // render the selected product details
+  });
+</script>
+</body>
+</html>

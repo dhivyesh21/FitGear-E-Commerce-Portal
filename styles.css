@@ -1,0 +1,191 @@
+/* Root variables */
+:root {
+  --bg: #071428;
+  --card: #0f1b26;
+  --text-primary: #e8eef4;
+  --text-secondary: #9aa6b2;
+  --accent: #ff7a18;
+  --accent2: #0ea5e9;
+  --btn-text: #fff;
+  --footer-bg: #000; /* Footer always black */
+  --footer-text: #ddd;
+}
+
+body.light {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text-primary: #071428;
+  --text-secondary: #475569;
+  --accent: #0ea5e9;
+  --btn-text: #fff;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--text-primary);
+  margin: 0 0 15px 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: var(--card);
+}
+
+.navbar a {
+  margin-left: 20px;
+  color: var(--text-primary);
+}
+
+/* Buttons */
+.btn-warning {
+  background: var(--accent);
+  color: var(--btn-text);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-warning:hover {
+  opacity: 0.85;
+}
+
+/* Cards & Containers */
+.card, .card-site {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover, .card-site:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.card p, .card-site p {
+  color: var(--text-secondary);
+}
+
+/* Footer */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 12px;
+  margin-top: auto;
+}
+
+/* Theme toggle button */
+#themeBtn, #themeBtn2 {
+  cursor: pointer;
+}
+/* Make body a flex column so footer sticks to bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Content should grow to fill space */
+main {
+  flex: 1;
+}
+
+/* Footer consistent black background */
+footer {
+  background: #000;
+  color: #ddd;
+  text-align: center;
+  padding: 12px;
+}
+/* Text colors */
+body {
+  color: var(--text-primary);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+body.light {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text-primary: #071428;   /* dark text for light mode */
+  --text-secondary: #475569; /* muted text */
+  --accent: #0ea5e9;
+  --btn-text: #fff;
+}
+
+body.dark {
+  --bg: #071428;
+  --card: #0f1b26;
+  --text-primary: #e8eef4;
+  --text-secondary: #9aa6b2;
+  --accent: #ff7a18;
+  --btn-text: #fff;
+}
+
+/* Specific text elements */
+.navbar a,
+.navbar .navbar-brand,
+h1, h2, h3, h4, h5, h6,
+p, label, input, select, textarea,
+.alert, .card-site, .products-container,
+.faq-container, footer {
+  color: var(--text-primary);
+}
+
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* Inputs and placeholders */
+input, select, textarea {
+  background: var(--card);
+  color: var(--text-primary);
+  border: 1px solid #ccc;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Footer */
+footer {
+  background: #000 !important;
+  color: #ddd !important;
+  text-align: center;
+  padding: 12px;
+  margin-top: auto;
+}
+
+/* Cards / containers */
+.card-site, .card, .products-container .card {
+  background: var(--card);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* EMI, FAQ, Products, etc. styles remain using card background and text colors */
